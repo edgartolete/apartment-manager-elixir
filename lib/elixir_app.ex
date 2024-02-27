@@ -1,18 +1,12 @@
 defmodule ElixirApp do
-  @moduledoc """
-  Documentation for `ElixirApp`.
-  """
+  use Application
 
-  @doc """
-  Hello world.
+  def start(_type, _args) do
+    IO.puts(ElixirApp.hello())
+    Supervisor.start_link([], strategy: :one_for_one)
+  end
 
-  ## Examples
-
-      iex> ElixirApp.hello()
-      :world
-
-  """
   def hello do
-    :world
+    IO.puts("Test2")
   end
 end
